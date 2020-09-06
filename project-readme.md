@@ -25,3 +25,7 @@ Video 10: select box data from array
 Video 11: Angular Datepicker
     a)why its not gud to use browser builtin datepicker : bcoz diff browser shows diff ux
     b)updating app.module to support ngx-datepicker and also using bsDatepicker in html
+Video 12: Configuring DatePicker
+    a)Add BsDatePickerConfig to component.module
+    b)Date picker showing one date prior date in interpolation on create page
+    

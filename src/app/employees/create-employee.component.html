@@ -63,9 +63,11 @@
                   </option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="dateOfBirth">Date of Birth</label>
-                <input bsDatepicker type="text" name="dateOfBirth"  id="dateOfBirth" [(ngModel)]="dateOfBirth" class="form-control">
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <input bsDatepicker [bsConfig]="datePickerConfig" placement="right" type="text" name="dateOfBirth"  id="dateOfBirth" [(ngModel)]="dateOfBirth" class="form-control">
+                </div>
             </div>
         </div>
         <div class="panel-footer">
@@ -74,3 +76,4 @@
     </div>
 </form>
 Angular Generated Form Model : {{employeeForm.value | json}}
+Date of birth : {{ employeeForm.value.dateOfBirth }}
