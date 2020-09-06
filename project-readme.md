@@ -36,4 +36,6 @@ Video 16: displaying validation messages
     a)bootstrap classes used has-error,control-label,help-block
     b)two ways to add classes : using [class.has-success] or [ngClass]="{'has-success':true}"
     c)if any field is invalid then whole form is invalid hence we use local reference of ngForm i.e employeeForm in save button
-Video 17:binding form elements to Employee object
+Video 17: Binding form elements to Employee object
+Video 18: Email validation using email directive
+Video 19: Validation using regex
