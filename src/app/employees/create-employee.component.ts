@@ -11,6 +11,7 @@ import { Department } from '../models/department.model';
   styleUrls: ['./create-employee.component.css']
 })
 export class CreateEmployeeComponent implements OnInit {
+  previewPhoto : boolean = false;
   dateOfBirth: Date = new Date(2018,1,14);
   datePickerConfig: Partial<BsDatepickerConfig>;
   gender: string = 'male';
@@ -37,8 +38,7 @@ export class CreateEmployeeComponent implements OnInit {
   saveEmployee(employeeForm: NgForm): void {
     console.log(employeeForm);
   }
-  updateTimeZone(date: Date): Date{
-    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-    return date;
+  togglePhotoPreview() {
+    this.previewPhoto = !this.previewPhoto;
   }
 }

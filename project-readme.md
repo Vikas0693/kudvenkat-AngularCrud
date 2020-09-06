@@ -28,4 +28,7 @@ Video 11: Angular Datepicker
 Video 12: Configuring DatePicker
     a)Add BsDatePickerConfig to component.module
     b)Date picker showing one date prior date in interpolation on create page
-    
+    c)placement of datepicker
+Video 13: ngIf structural directive on button
+Video 14: ngNativeValidate on form tag to enable browser built in validation and required on input tags
+Video 15:
