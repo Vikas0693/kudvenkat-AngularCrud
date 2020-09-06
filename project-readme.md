@@ -32,4 +32,8 @@ Video 12: Configuring DatePicker
 Video 13: ngIf structural directive on button
 Video 14: ngNativeValidate on form tag to enable browser built in validation and required on input tags
 Video 15: Local template variable to access six validation properties :touched,untouched,dirty,pristine,valid,invalid. Local template variable is #fullNameControl in create.component.html
-Video 16: 
+Video 16: displaying validation messages
+    a)bootstrap classes used has-error,control-label,help-block
+    b)two ways to add classes : using [class.has-success] or [ngClass]="{'has-success':true}"
+    c)if any field is invalid then whole form is invalid hence we use local reference of ngForm i.e employeeForm in save button
+Video 17:
