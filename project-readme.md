@@ -38,4 +38,7 @@ Video 16: displaying validation messages
     c)if any field is invalid then whole form is invalid hence we use local reference of ngForm i.e employeeForm in save button
 Video 17: Binding form elements to Employee object
 Video 18: Email validation using email directive
-Video 19: Validation using regex
+Video 19: Validation using regex 'pattern' directive
+Video 20: Validation check on radio button
+Video 21: Adding required validation dynamically
+    a)instead of [required]="expression" , i used [attr.required] in phone and ng-required in email of create component.html

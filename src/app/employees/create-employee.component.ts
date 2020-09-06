@@ -51,4 +51,8 @@ export class CreateEmployeeComponent implements OnInit {
   togglePhotoPreview() {
     this.previewPhoto = !this.previewPhoto;
   }
+  ngAfterViewChecked(){
+    //your code to update the model
+    console.log('ngView changes!!!!!!');
+ }
 }
