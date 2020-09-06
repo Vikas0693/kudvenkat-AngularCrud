@@ -31,4 +31,5 @@ Video 12: Configuring DatePicker
     c)placement of datepicker
 Video 13: ngIf structural directive on button
 Video 14: ngNativeValidate on form tag to enable browser built in validation and required on input tags
-Video 15:
+Video 15: Local template variable to access six validation properties :touched,untouched,dirty,pristine,valid,invalid. Local template variable is #fullNameControl in create.component.html
+Video 16: 
