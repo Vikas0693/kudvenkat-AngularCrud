@@ -64,3 +64,6 @@ Video 26: Reusable Custom validator
 Video 27: Reusable Confirm Password Custom Validator
     a)*send name of one input to directive and apply that directive on second input
     b)using passed name to directive get value of that input from dom using control.parent.get('password') method
+Video 28.1 : Making validation robust on password and confirmPassword
+    a)adding help-block class to password field also when user enters diff. password
+Video 28.2 : 
