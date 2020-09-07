@@ -49,3 +49,8 @@ Video 24: Diff b/w value and ngValue
     a)value binds to string even [value] also binds to string for eg in our options of department
     b)[ngValue] binds to object
     c)so to bind to null object we use [ngValue]="null" and not [value]="null" since later means binding to null string.
+Video 25: In template driven form writing our own custom form using directive
+    a)*use Validator as parent interface
+    b)*use providers and selector properties in Directive using @Directive
+    c)declare this directive in our component's module which is in this case app.module.ts
+    d)use errors property on formControl i.e department to know is our customValidation passed or not
