@@ -81,14 +81,15 @@
                 <label for="department" class="control-label">Department</label>
                 <select required id="department" name="department" #department="ngModel"
                         [(ngModel)]="employee.department" class="form-control">
-                    <option value="-1">Select Department</option> 
-                    <option *ngFor="let dept of departments" [value]="dept.id">
+                    <option disabled [ngValue]="null">Select Department</option> 
+                    <!-- <option *ngFor="let dept of departments" [value]="dept.id"> -->
+                    <option *ngFor="let dept of departments" [ngValue]="dept">
                         {{dept.name}}
                     </option>
                 </select>
                 <span class="help-block" *ngIf="department.touched && department.invalid">
-                Department is required
-          </span>
+                    Department is required
+                </span>
             </div>
             <div class="row">
                 <div class="form-group col-md-5">

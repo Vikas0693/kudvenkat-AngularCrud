@@ -45,3 +45,7 @@ Video 21: Adding required validation dynamically
     b)*using [required]="expression" was throwing internal error in console.
 Video 22: Validation on isActive checkbox
 Video 23: Validation on select box, and filling select box with invalid placeholder 'select department'
+Video 24: Diff b/w value and ngValue
+    a)value binds to string even [value] also binds to string for eg in our options of department
+    b)[ngValue] binds to object
+    c)so to bind to null object we use [ngValue]="null" and not [value]="null" since later means binding to null string.
