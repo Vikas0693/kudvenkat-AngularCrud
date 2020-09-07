@@ -27,7 +27,9 @@ export class CreateEmployeeComponent implements OnInit {
     dateOfBirth: null,
     department: '-101',
     isActive: null,
-    photoPath: null
+    photoPath: null,
+    confirmPassword: null,
+    password: null
   };
 
   departments: Department[] = [
