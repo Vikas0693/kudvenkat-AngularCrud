@@ -66,4 +66,8 @@ Video 27: Reusable Confirm Password Custom Validator
     b)using passed name to directive get value of that input from dom using control.parent.get('password') method
 Video 28.1 : Making validation robust on password and confirmPassword
     a)adding help-block class to password field also when user enters diff. password
-Video 28.2 : 
+    b)use ngModelGroup to group both fields
+Video 28.2 : when user enters correct password and confirmpassword and then changes password then there is  no   
+    validation error lets see why
+    a)since validator directive is added only to confirmPassword we have to manually trigger validation on password
+    b)*Manually trigger validation - use updateValueAndValidity() mehtod on control of confirmPassword when change event is emitted on password field. Change event will trigger when we click outside of input so we will use input event
