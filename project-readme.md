@@ -71,3 +71,7 @@ Video 28.2 : when user enters correct password and confirmpassword and then chan
     validation error lets see why
     a)since validator directive is added only to confirmPassword we have to manually trigger validation on password
     b)*Manually trigger validation - use updateValueAndValidity() mehtod on control of confirmPassword when change event is emitted on password field. Change event will trigger when we click outside of input so we will use input event
+Video 29: Custom Validation on ngModelGroup
+    a)*significance: no need to add validation in password and confirmPassword separately
+    b)since its applied on group that ngModdelGroup is passed to customvalidator class
+    c)ngModelGroup should be child to ngForm
