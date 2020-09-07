@@ -51,7 +51,7 @@ Video 24: Diff b/w value and ngValue
     c)so to bind to null object we use [ngValue]="null" and not [value]="null" since later means binding to null string.
 Video 25: In template driven form writing our own custom form using directive
     a)*use Validator as parent interface
-    b)*use providers and selector properties in Directive using @Directive
+    b)*use providers and selector properties in Directive using @Directive. NG_VALIDATORS is set of all validators in angular.
     c)declare this directive in our component's module which is in this case app.module.ts
     d)use errors property on formControl i.e department to know is our customValidation passed or not
 Video 26: Reusable Custom validator
@@ -75,3 +75,4 @@ Video 29: Custom Validation on ngModelGroup
     a)*significance: no need to add validation in password and confirmPassword separately
     b)since its applied on group that ngModdelGroup is passed to customvalidator class
     c)ngModelGroup should be child to ngForm
+Video 30: .Removed password and confirm password field by kudvenkat in previous video 
