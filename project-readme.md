@@ -54,3 +54,10 @@ Video 25: In template driven form writing our own custom form using directive
     b)*use providers and selector properties in Directive using @Directive
     c)declare this directive in our component's module which is in this case app.module.ts
     d)use errors property on formControl i.e department to know is our customValidation passed or not
+Video 26: Reusable Custom validator
+    a)*if we want to pass value to validator then read next steps
+    b)use validator like appSelectValidator="-101" in html
+    c)use @Input() appSelectValidator; as property in directive
+    d)*selector and name of input property should be same
+    e)So angular passes -101 to input property internally
+    f)if want to use aother name for input property then use like '@Input('appSelectValidator') defaultValue: string;'
