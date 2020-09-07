@@ -41,8 +41,6 @@
                 <span class="help-block" *ngIf="email.errors?.pattern">
                     Email is invalid
                 </span>
-                email {{email.value}}<br>
-                requird: {{contactPreference.value == 'email'}}
             </div>
 
             <div class="form-group" [class.has-error]="phoneNumber?.invalid">
@@ -51,8 +49,6 @@
                 <span class="help-block" *ngIf="phoneNumber.errors?.required">
                     Phone Number is required    
                 </span>
-                Phone nnUmber {{phoneNumber.value}}<br>
-                requird: {{contactPreference.value == 'phone'}}
             </div>
 
             <div class="form-group" [class.has-error]="gender.invalid">
@@ -71,12 +67,15 @@
                     Gender is required
                 </span>
             </div>
-            <div class="form-group">
+            <div class="form-group" [class.has-error]="isActive.invalid && isActive.touched">
                 <div class="form-control">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" name="isActive" [(ngModel)]="employee.isActive" checked>Is Active
+                    <label class="checkbox-inline" class="control-label">
+                        <input [attr.required]="isActive.value==null" type="checkbox" name="isActive" #isActive="ngModel" [(ngModel)]="employee.isActive">Is Active
                     </label>
                 </div>
+                <span class="help-block" *ngIf="isActive.errors?.required && isActive.touched">
+                    IsActive is required
+                </span>
             </div>
             <div class="form-group">
                 <label for="department">Department</label>

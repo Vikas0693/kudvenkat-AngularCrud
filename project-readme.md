@@ -41,4 +41,5 @@ Video 18: Email validation using email directive
 Video 19: Validation using regex 'pattern' directive
 Video 20: Validation check on radio button
 Video 21: Adding required validation dynamically
-    a)instead of [required]="expression" , i used [attr.required] in phone and ng-required in email of create component.html
+    a)*instead of [required]="expression" , i used [attr.required] in phone and ng-required in email of create component.html. required is attribute hence used [attr.required] format.
+    b)*using [required]="expression" was throwing internal error in console.
