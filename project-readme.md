@@ -89,3 +89,4 @@ Video 35: Property setter change detection and reaction to changes
     a)* function name in this case employee should be same in case of get and set methods
 Video 36: When to use ngOnChanges or property setter
     a)*when we want to intercept changes to all field then use ngOnChanges as the code to react have to be only in onChanges() method else use setter property of each field for which we want tracking
+Video 37: Using @Output decorator to emit event to parent component
