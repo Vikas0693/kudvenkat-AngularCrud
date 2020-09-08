@@ -87,3 +87,5 @@ Video 34: Input(@Input decorator we used in video 33) property change detection
     b)using ngOnChanges with functions onChanges(changes: SimpleChanges)
 Video 35: Property setter change detection and reaction to changes
     a)* function name in this case employee should be same in case of get and set methods
+Video 36: When to use ngOnChanges or property setter
+    a)*when we want to intercept changes to all field then use ngOnChanges as the code to react have to be only in onChanges() method else use setter property of each field for which we want tracking
