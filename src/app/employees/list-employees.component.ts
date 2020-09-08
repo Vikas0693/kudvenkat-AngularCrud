@@ -7,10 +7,7 @@ import { EmployeeService } from './employee.service';
   styleUrls: ['./list-employees.component.css']
 })
 export class ListEmployeesComponent implements OnInit {
-  employeeToDisplay: Employee;
   employees: Employee[];
-  //to track employee index to be showne in nextEmployee button click
-  private arrayIndex = 1;
 
   // Inject EmployeeService using the constructor
   // The private variable _employeeService which points to
@@ -20,17 +17,6 @@ export class ListEmployeesComponent implements OnInit {
 
   ngOnInit(): void {
     this.employees = this._employeeService.getEmployees();
-    this.employeeToDisplay = this.employees[0];
   }
 
-  nextEmployee(): void {
-    if(this.arrayIndex < this.employees.length){
-      this.employeeToDisplay = this.employees[this.arrayIndex];
-      this.arrayIndex++;
-    }
-    else{
-      this.employeeToDisplay = this.employees[0];
-      this.arrayIndex=1;
-    }
-  }
 }
