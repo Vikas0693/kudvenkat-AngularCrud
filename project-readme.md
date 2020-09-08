@@ -82,3 +82,6 @@ Video 32: ngswitch to display department name instead of id
     a)*its a combination of 3 directives ngSwitch,ngSwitchCase,ngSwitchDefault
     b)*we are not using * in ngSwitch because its not a structural directive
 Video 33: Passing data from parent to child using @Input() decoarator
+Video 34: Input(@Input decorator we used in video 33) property change detection
+    a)ways to detect and react on changes : i)using property setter and ii)ngOnChanges lifecycle hook
+    b)using ngOnChanges with functions onChanges(changes: SimpleChanges)
