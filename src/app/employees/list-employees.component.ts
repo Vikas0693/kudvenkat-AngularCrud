@@ -7,7 +7,6 @@ import { EmployeeService } from './employee.service';
   styleUrls: ['./list-employees.component.css']
 })
 export class ListEmployeesComponent implements OnInit {
-  dataFromChild: Employee;
   employees: Employee[];
 
   // Inject EmployeeService using the constructor
@@ -20,7 +19,4 @@ export class ListEmployeesComponent implements OnInit {
     this.employees = this._employeeService.getEmployees();
   }
 
-  handleNotify(eventData: Employee) {
-    this.dataFromChild = eventData;
-  }
 }

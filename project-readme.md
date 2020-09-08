@@ -89,4 +89,9 @@ Video 35: Property setter change detection and reaction to changes
     a)* function name in this case employee should be same in case of get and set methods
 Video 36: When to use ngOnChanges or property setter
     a)*when we want to intercept changes to all field then use ngOnChanges as the code to react have to be only in onChanges() method else use setter property of each field for which we want tracking
-Video 37: Using @Output decorator to emit event to parent component
+Video 37: Using @Output decorator to emit event or to pass data to parent component 
+Video 38: passing child properties without @Output decorator to paret component
+    a)*we do exactly same thing of video 37 using template reference for eg. #childComponent is template reference
+    b)#childComponent in <app-display-employee> stores the instance of class which is bound to that selector which is DisplayEmployee class.
+    c)now in div we have direct access to all public prperties of DisplayEmployee.
+    d)we are also setting template reference for h1 tag and setting its innerhtml in div
