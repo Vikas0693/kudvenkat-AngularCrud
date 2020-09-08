@@ -75,4 +75,6 @@ Video 29: Custom Validation on ngModelGroup
     a)*significance: no need to add validation in password and confirmPassword separately
     b)since its applied on group that ngModdelGroup is passed to customvalidator class
     c)ngModelGroup should be child to ngForm
-Video 30: .Removed password and confirm password field by kudvenkat in previous video 
+Video 30: Adding service .Removed password and confirm password field by kudvenkat in previous video 
+    a)*from maintainability point of view use providers of module/component to add services
+Video 31: 

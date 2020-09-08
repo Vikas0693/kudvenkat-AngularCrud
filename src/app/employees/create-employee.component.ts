@@ -6,6 +6,9 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Department } from '../models/department.model';
 import { Employee } from '../models/employee.model';
 
+import { EmployeeService } from './employee.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-create-employee',
   templateUrl: './create-employee.component.html',
@@ -36,7 +39,7 @@ export class CreateEmployeeComponent implements OnInit {
     { id: 3, name: 'IT' },
     { id: 4, name: 'Payroll' }
   ];
-  constructor() { 
+  constructor(private _employeeService: EmployeeService, private _router: Router) { 
     this.datePickerConfig = { 
       containerClass: 'theme-dark-blue', 
       dateInputFormat: 'DD/MM/YYYY'
@@ -45,12 +48,16 @@ export class CreateEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  saveEmployee(newEmployee: Employee): void {
-    console.log(newEmployee);
+
+  saveEmployee(): void {
+    this._employeeService.saveEmployee(this.employee);
+    this._router.navigate(['list']);
   }
+
   togglePhotoPreview() {
     this.previewPhoto = !this.previewPhoto;
   }
+
   ngAfterViewChecked(){
     //your code to update the model
     console.log('ngView changes!!!!!!');

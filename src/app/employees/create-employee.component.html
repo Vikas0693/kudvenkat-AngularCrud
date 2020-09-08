@@ -1,10 +1,9 @@
-<form #employeeForm="ngForm" ngNativeValidate (ngSubmit)="saveEmployee(employee)">
+<form #employeeForm="ngForm" ngNativeValidate (ngSubmit)="saveEmployee()">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Create Employee</h3>
         </div>
         <div class="panel-body">
-
             <div class="form-group" [class.has-error]="name.invalid && name.touched"
                 [ngClass]="{'has-success': name.valid}">
                 <label for="name" class="control-label">Name</label>
@@ -36,7 +35,7 @@
 
             <div class="form-group" [class.has-error]="email?.invalid">
                 <label for="email" class="control-label">Email</label>
-                <input ng-required="contactPreference.value == 'email'"
+                <input [required]="contactPreference.value === 'email'"
                     pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" id="email" type="text"
                     class="form-control" name="email" #email="ngModel" [(ngModel)]="employee.email">
                 <span class="help-block" *ngIf="email.errors?.required">
@@ -49,7 +48,7 @@
 
             <div class="form-group" [class.has-error]="phoneNumber?.invalid">
                 <label for="phoneNumber" class="control-label">Phone Number</label>
-                <input [attr.required]="contactPreference.value == 'phone'" id="phoneNumber" type="text"
+                <input [required]="contactPreference.value ==='phone'" id="phoneNumber" type="text"
                     class="form-control" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="employee.phoneNumber">
                 <span class="help-block" *ngIf="phoneNumber.errors?.required">
                     Phone Number is required
