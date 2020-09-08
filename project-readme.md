@@ -85,3 +85,5 @@ Video 33: Passing data from parent to child using @Input() decoarator
 Video 34: Input(@Input decorator we used in video 33) property change detection
     a)ways to detect and react on changes : i)using property setter and ii)ngOnChanges lifecycle hook
     b)using ngOnChanges with functions onChanges(changes: SimpleChanges)
+Video 35: Property setter change detection and reaction to changes
+    a)* function name in this case employee should be same in case of get and set methods
