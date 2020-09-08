@@ -81,3 +81,4 @@ Video 31: saving employee temporary and routing to list employees
 Video 32: ngswitch to display department name instead of id
     a)*its a combination of 3 directives ngSwitch,ngSwitchCase,ngSwitchDefault
     b)*we are not using * in ngSwitch because its not a structural directive
+Video 33: Passing data from parent to child using @Input() decoarator
