@@ -12,7 +12,4 @@ export class DisplayEmployeeComponent implements OnInit {
   constructor() { }
   ngOnInit(): void {
   }
-  getNameAndGender(): string {
-    return this.employee.name + ' ' + this.employee.gender;
-  }
 }
