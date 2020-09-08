@@ -77,4 +77,7 @@ Video 29: Custom Validation on ngModelGroup
     c)ngModelGroup should be child to ngForm
 Video 30: Adding service .Removed password and confirm password field by kudvenkat in previous video 
     a)*from maintainability point of view use providers of module/component to add services
-Video 31: 
+Video 31: saving employee temporary and routing to list employees
+Video 32: ngswitch to display department name instead of id
+    a)*its a combination of 3 directives ngSwitch,ngSwitchCase,ngSwitchDefault
+    b)*we are not using * in ngSwitch because its not a structural directive
