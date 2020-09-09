@@ -108,3 +108,5 @@ Video 42: Reading params using Observable
     c)*we dont have to unsubscribe to observable as angular router takes care of that part.
 Video 43: Optional Route params
     a)*we can pass as many optional params as we want
+Video 44: Required VS Optional parameter
+    a)prefer optional when params are complex just like we are searching employee then url can be like '/list/vikas/male/gujarat/isActive' for required, but with this route configuration will fail to identify which is name and which is sate so we use optional like 'list;name=vikas;gender=male;state=gujarat;active=isActive'
