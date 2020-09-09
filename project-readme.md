@@ -97,4 +97,4 @@ Video 38: passing child properties without @Output decorator to paret component
     d)we are also setting template reference for h1 tag and setting its innerhtml in div
 Video 39: Route guard to stop user from navigating to list if form is dirty
     a)*Use @ViewChild to access Ngform directive using selector of NgForm
-    b)
+    b)routing guard canDeactivate does not work when routing to external link
