@@ -25,12 +25,15 @@ export class ListEmployeesComponent implements OnInit {
   }
 
   changeName(){
-    this.employees[0].name="jorddan";
+    this.employees[0].name="jordan";
   }
 
   changeEmployeesObjectReference(){
     const newEmployee : Employee[] = Object.assign([], this.employees);
     newEmployee[0].name = 'jordan';
+    //this.employees gets new object reference
     this.employees = newEmployee;
   }
+
+  onMouseMove(){}
 }

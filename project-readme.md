@@ -119,11 +119,15 @@ Video 45: Reset form so that discard alert does not come on saving the form afte
 Video 46: Problem : on resetting form data the values of employees that was saved gets null to reset
     a)*this is bcoz of javascript referencing. To solve this use Object.assign method to copy object
 Video 47: Created Custom Filter Pipes. 
-    a)But pipes should not be used for filter and sort data instead they should be used only to format data.Why? see video 48
-Video 48: What is pure pipe - enabled by default
+    a)But pipes should not be used for filter and sort data instead they should be used only to format data.Why? see video 48,49,50
+    b)after video 48,49 the reason of not using pipe for filtering is bcoz pure pipe does not track object property value and impure pipes are way bad as they execute unexpectedly
+Video 48: What is pure pipe - enabled by default - very fast as it tracks value of primitive type and only references of object type for change
     a)*set using pure property in @pipe ecorator
     b)*its is executed when pure change is detected
     c)*pure change-when change happens on primitive type(string,number,boolean) or on object reference(Array,Object,Date)
     d)Understand pure change on primitive type: i)Create a button in list-employees ii)change name of first employee to any lowercase on button click iii)we will see as name changes pipe of uppercase is applied
     e)understand pure change on objects: i) create button with method 'changeEmployeesObjectReference()' ii)since out employeeFilter is registerd with employeesArray we'll search term 'j' and john appears iii) Now click button and we will see employeeFilter working. Becuase we changed the reference of employees. Now if we didn't had assigned the new object to employees array then filter would not have worked
     f)to prove point d) and e) lets first search employee using 'j' then click change name filter won't work but name has actually been changed as we wrote name change code in button click
+Video 49: Impure Pipe - enable by setting pure:false property - its very slow as it tracks every property value of object
+    a)search for 'j' click change name button and we won't see jordan employee but it is there in employees object so to make this work set pure to false in our custom filter
+    b)to prove why it is very slow : bind function to mousemove event and set counter in our custom filer

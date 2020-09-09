@@ -8,7 +8,7 @@
 <div class="form-group">
         <button class="btn btn-primary" (click)="changeEmployeesObjectReference()">Change Name via object</button>
 </div>
-<div *ngFor="let employee of employees | employeeFilter:searchTerm">
+<div *ngFor="let employee of employees | employeeFilter:searchTerm" (mousemove)="onMouseMove()">
         <div class="pointerCursor" (click)="onClick(employee.id)">
                 <app-display-employee [employee]="employee"></app-display-employee>
         </div>
