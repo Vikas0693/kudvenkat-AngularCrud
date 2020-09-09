@@ -110,3 +110,9 @@ Video 43: Optional Route params
     a)*we can pass as many optional params as we want
 Video 44: Required VS Optional parameter
     a)prefer optional when params are complex just like we are searching employee then url can be like '/list/vikas/male/gujarat/isActive' for required, but with this route configuration will fail to identify which is name and which is sate so we use optional like 'list;name=vikas;gender=male;state=gujarat;active=isActive'
+Video 45: Reset form so that discard alert does not come on saving the form after filling it
+    a)there are two ways: 1)in html and 2)programatically is also two ways
+    b)use reset() method on ngForm template reference like (ngSubmit)="saveEmployee();employeeForm.reset()"
+    c.1)passing employeeForm to function : saveEmployee(employeeForm: NgForm)
+    c.2)getting template reference in component using @ViewChild decorator
+    d)*if we want some fields to be set to default value on reset we can pass object for those values like reset({name:'default',..}) etc

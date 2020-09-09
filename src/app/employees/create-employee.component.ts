@@ -52,15 +52,11 @@ export class CreateEmployeeComponent implements OnInit {
 
   saveEmployee(): void {
     this._employeeService.saveEmployee(this.employee);
+    this.createEmployeeForm.reset();
     this._router.navigate(['list']);
   }
 
   togglePhotoPreview() {
     this.previewPhoto = !this.previewPhoto;
   }
-
-  ngAfterViewChecked(){
-    //your code to update the model
-    console.log('ngView changes!!!!!!');
- }
 }
