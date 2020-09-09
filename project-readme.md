@@ -131,3 +131,4 @@ Video 48: What is pure pipe - enabled by default - very fast as it tracks value 
 Video 49: Impure Pipe - enable by setting pure:false property - its very slow as it tracks every property value of object
     a)search for 'j' click change name button and we won't see jordan employee but it is there in employees object so to make this work set pure to false in our custom filter
     b)to prove why it is very slow : bind function to mousemove event and set counter in our custom filer
+Video 50: Removing pipe filtering and adding filteration in list-component itself.

@@ -8,8 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-employees.component.css']
 })
 export class ListEmployeesComponent implements OnInit {
+  
   employees: Employee[];
-  searchTerm: string;
+  filteredEmployees: Employee[];
+  private _searchTerm: string;
+  public get searchTerm(): string {
+    return this._searchTerm;
+  }
+  public set searchTerm(value: string) {
+    this._searchTerm = value;
+    this.filteredEmployees = this.filterEmployees(value);
+  }
+
+  filterEmployees(searchParam: string): Employee[]{
+      return this.employees.filter(employee => employee.name.toLowerCase().indexOf(searchParam)!=-1);
+  }
   // Inject EmployeeService using the constructor
   // The private variable _employeeService which points to
   // EmployeeService singelton instance is then available
@@ -18,6 +31,7 @@ export class ListEmployeesComponent implements OnInit {
 
   ngOnInit(): void {
     this.employees = this._employeeService.getEmployees();
+    this.filteredEmployees = this.employees;
   }
 
   onClick(employeeId: number){
@@ -26,6 +40,7 @@ export class ListEmployeesComponent implements OnInit {
 
   changeName(){
     this.employees[0].name="jordan";
+    this.filteredEmployees = this.filterEmployees(this.searchTerm);
   }
 
   changeEmployeesObjectReference(){
@@ -33,7 +48,9 @@ export class ListEmployeesComponent implements OnInit {
     newEmployee[0].name = 'jordan';
     //this.employees gets new object reference
     this.employees = newEmployee;
+    this.filteredEmployees = this.filterEmployees(this.searchTerm);
   }
 
   onMouseMove(){}
+
 }
