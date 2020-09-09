@@ -2,6 +2,12 @@
         <input type="text" class="form-control" placeholder="Search By Name" style="width:300px"
                 [(ngModel)]="searchTerm" />
 </div>
+<div class="form-group">
+        <button class="btn btn-primary" (click)="changeName()">Change Name</button>
+</div>
+<div class="form-group">
+        <button class="btn btn-primary" (click)="changeEmployeesObjectReference()">Change Name via object</button>
+</div>
 <div *ngFor="let employee of employees | employeeFilter:searchTerm">
         <div class="pointerCursor" (click)="onClick(employee.id)">
                 <app-display-employee [employee]="employee"></app-display-employee>
