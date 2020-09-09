@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ListEmployeesComponent implements OnInit {
   employees: Employee[];
-
+  searchTerm: string;
   // Inject EmployeeService using the constructor
   // The private variable _employeeService which points to
   // EmployeeService singelton instance is then available

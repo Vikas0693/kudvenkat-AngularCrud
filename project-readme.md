@@ -116,3 +116,8 @@ Video 45: Reset form so that discard alert does not come on saving the form afte
     c.1)passing employeeForm to function : saveEmployee(employeeForm: NgForm)
     c.2)getting template reference in component using @ViewChild decorator
     d)*if we want some fields to be set to default value on reset we can pass object for those values like reset({name:'default',..}) etc
+Video 46: Problem : on resetting form data the values of employees that was saved gets null to reset
+    a)*this is bcoz of javascript referencing. To solve this use Object.assign method to copy object
+Video 47: Created Custom Filter Pipes. 
+    a)But pipes should not be used for filter and sort data instead they should be used only to format data.Why? see video 48
+Video 48: What is pure pipe
