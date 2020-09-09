@@ -95,3 +95,6 @@ Video 38: passing child properties without @Output decorator to paret component
     b)#childComponent in <app-display-employee> stores the instance of class which is bound to that selector which is DisplayEmployee class.
     c)now in div we have direct access to all public prperties of DisplayEmployee.
     d)we are also setting template reference for h1 tag and setting its innerhtml in div
+Video 39: Route guard to stop user from navigating to list if form is dirty
+    a)*Use @ViewChild to access Ngform directive using selector of NgForm
+    b)
