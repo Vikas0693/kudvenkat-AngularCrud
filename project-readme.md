@@ -106,3 +106,5 @@ Video 42: Reading params using Observable
     a)how to subscribe to angular route param change
     b)*why to use observable to read params : when employee-component loads first time it enters ngOnInit() but when we click next employee button then the component is not initialized. So we have to subscribe to changes in route.
     c)*we dont have to unsubscribe to observable as angular router takes care of that part.
+Video 43: Optional Route params
+    a)*we can pass as many optional params as we want
