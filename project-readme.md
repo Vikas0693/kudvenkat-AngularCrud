@@ -98,3 +98,8 @@ Video 38: passing child properties without @Output decorator to paret component
 Video 39: Route guard to stop user from navigating to list if form is dirty
     a)*Use @ViewChild to access Ngform directive using selector of NgForm
     b)routing guard canDeactivate does not work when routing to external link
+Video 40: Routing with params using Router module
+Video 41: Reading params using ActivatedRoute module. Two approaches to read params namely :
+    a)*snapshot approach : when routing to different component just like list to employee as we did in video 40
+    b)*Observable approach: when routing to same component which we will cover in video 42
+Video 42: Reading params using Observable
