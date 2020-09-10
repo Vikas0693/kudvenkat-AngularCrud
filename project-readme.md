@@ -132,3 +132,10 @@ Video 49: Impure Pipe - enable by setting pure:false property - its very slow as
     a)search for 'j' click change name button and we won't see jordan employee but it is there in employees object so to make this work set pure to false in our custom filter
     b)to prove why it is very slow : bind function to mousemove event and set counter in our custom filer
 Video 50: Removing pipe filtering and adding filteration in list-component itself.
+Video 51: Query params to be retained for previous page
+    a)search 'j' click john and then come back to list again and search term will not be there anymore
+    b)to pass query params in html we use like this '[queryParams]="{'parameterName':'parameterValue'}"'. It should be used where [routerLink] is there
+    c)so when we go back to list we have to get searchTerm from url this can be achieved in html using queryParamsHandling="preserve". to do programatically set {queryParamsHandling:'preserve'} as second object in router.navigate.
+    d)queryParamsHandling="merge" means when we click back to list button then we want some queryparams to get merged to existing params that we have in url
+    e)queryParamsHandling="preserve" will keep the params in url if we go back to list but will not add any new param
+    f)we are loosing params on nextEmployee so keep them lets set preserve programatically
