@@ -139,3 +139,6 @@ Video 51: Query params to be retained for previous page
     d)queryParamsHandling="merge" means when we click back to list button then we want some queryparams to get merged to existing params that we have in url
     e)queryParamsHandling="preserve" will keep the params in url if we go back to list but will not add any new param
     f)we are loosing params on nextEmployee so keep them lets set preserve programatically
+Video 52: Reading query params using queryParamMap of activated route
+    a)snapshot and observable in both ways we can read data
+    

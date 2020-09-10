@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee }  from '../models/employee.model';
 import { EmployeeService } from './employee.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './list-employees.component.html',
@@ -16,6 +16,7 @@ export class ListEmployeesComponent implements OnInit {
     return this._searchTerm;
   }
   public set searchTerm(value: string) {
+    console.log('Setting Search Term');
     this._searchTerm = value;
     this.filteredEmployees = this.filterEmployees(value);
   }
@@ -27,11 +28,19 @@ export class ListEmployeesComponent implements OnInit {
   // The private variable _employeeService which points to
   // EmployeeService singelton instance is then available
   // throughout the class and can be accessed using this keyword
-  constructor(private _employeeService: EmployeeService, private _router: Router) { }
+  constructor(private _employeeService: EmployeeService, private _router: Router, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.employees = this._employeeService.getEmployees();
-    this.filteredEmployees = this.employees;
+    if(this._activatedRoute.snapshot.queryParamMap.has('searchTerm')){
+      console.log('setting search term from query params');
+      this.searchTerm = this._activatedRoute.snapshot.queryParamMap.get('searchTerm')
+    }
+    else{
+      //since here page gets loaded just like if we have came for first time 
+      this.filteredEmployees = this.employees;
+    }
+
   }
 
   onClick(employeeId: number){
