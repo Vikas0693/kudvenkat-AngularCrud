@@ -143,3 +143,6 @@ Video 52: Reading query params using queryParamMap of activated route
     a)snapshot and observable in both ways we can read data
 Video 53: Create observable from an array and using rxjs/delay to imitate n/w latency
     a)*since on subscribe to observable we are setting to employees and in next few instructions we are assigning it to filteredEployees which we use to display and subscribe works asynchronously , it doesn't work
+Video 54: Anuglar resolve guard
+    a)because of delay added while fetching employees in employeesservice, the list employee component takes 2 sec to publish data. so what if we click create and then click list again we will go to list page and wait to see data.
+    b)Resolver will wait for link to get activated untill it has data to show in list component

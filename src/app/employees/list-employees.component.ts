@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee }  from '../models/employee.model';
-import { EmployeeService } from './employee.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -23,23 +22,22 @@ export class ListEmployeesComponent implements OnInit {
   filterEmployees(searchParam: string): Employee[]{
       return this.employees.filter(employee => employee.name.toLowerCase().indexOf(searchParam)!=-1);
   }
-  // Inject EmployeeService using the constructor
-  // The private variable _employeeService which points to
-  // EmployeeService singelton instance is then available
-  // throughout the class and can be accessed using this keyword
-  constructor(private _employeeService: EmployeeService, private _router: Router, private _activatedRoute: ActivatedRoute) { }
+
+  constructor(private _router: Router, private _activatedRoute: ActivatedRoute) {
+    //reading pre-fetched data sent by resolver which is added in routes
+    //so now we no longer need observable in ngOnInit lets remove that
+    this.employees = _activatedRoute.snapshot.data['employeesList'];
+    if(this._activatedRoute.snapshot.queryParamMap.has('searchTerm')){
+      this.searchTerm = this._activatedRoute.snapshot.queryParamMap.get('searchTerm')
+    }
+    else{
+      //since here page gets loaded just like if we have came for first time 
+      this.filteredEmployees = this.employees;
+    }
+  }
 
   ngOnInit(): void {
-    this._employeeService.getEmployees().subscribe((employeeList) => {
-      this.employees = employeeList;
-      if(this._activatedRoute.snapshot.queryParamMap.has('searchTerm')){
-        this.searchTerm = this._activatedRoute.snapshot.queryParamMap.get('searchTerm')
-      }
-      else{
-        //since here page gets loaded just like if we have came for first time 
-        this.filteredEmployees = this.employees;
-      }
-    });
+      
 
   }
 
