@@ -141,4 +141,5 @@ Video 51: Query params to be retained for previous page
     f)we are loosing params on nextEmployee so keep them lets set preserve programatically
 Video 52: Reading query params using queryParamMap of activated route
     a)snapshot and observable in both ways we can read data
-    
+Video 53: Create observable from an array and using rxjs/delay to imitate n/w latency
+    a)*since on subscribe to observable we are setting to employees and in next few instructions we are assigning it to filteredEployees which we use to display and subscribe works asynchronously , it doesn't work

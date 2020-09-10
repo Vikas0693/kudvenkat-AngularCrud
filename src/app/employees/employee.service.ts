@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../models/employee.model';
+import { Observable, of } from 'rxjs';
+import { } from 'rxjs/observable/of';
+import { delay, concatMap} from 'rxjs/operators';
 
 //providedIn can be added here or we can inject this service at module/component level using providers which we did at root level
 @Injectable(/* {
@@ -41,8 +44,8 @@ export class EmployeeService {
             photoPath: 'assets/images/john.png'
         },
     ];
-    getEmployees(): Employee[] {
-        return this.listEmployees;
+    getEmployees(): Observable<Employee[]> {
+        return of(this.listEmployees).pipe(delay(1000));  
     }
 
     saveEmployee(employee: Employee){

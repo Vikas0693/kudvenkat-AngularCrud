@@ -16,7 +16,6 @@ export class ListEmployeesComponent implements OnInit {
     return this._searchTerm;
   }
   public set searchTerm(value: string) {
-    console.log('Setting Search Term');
     this._searchTerm = value;
     this.filteredEmployees = this.filterEmployees(value);
   }
@@ -31,15 +30,16 @@ export class ListEmployeesComponent implements OnInit {
   constructor(private _employeeService: EmployeeService, private _router: Router, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.employees = this._employeeService.getEmployees();
-    if(this._activatedRoute.snapshot.queryParamMap.has('searchTerm')){
-      console.log('setting search term from query params');
-      this.searchTerm = this._activatedRoute.snapshot.queryParamMap.get('searchTerm')
-    }
-    else{
-      //since here page gets loaded just like if we have came for first time 
-      this.filteredEmployees = this.employees;
-    }
+    this._employeeService.getEmployees().subscribe((employeeList) => {
+      this.employees = employeeList;
+      if(this._activatedRoute.snapshot.queryParamMap.has('searchTerm')){
+        this.searchTerm = this._activatedRoute.snapshot.queryParamMap.get('searchTerm')
+      }
+      else{
+        //since here page gets loaded just like if we have came for first time 
+        this.filteredEmployees = this.employees;
+      }
+    });
 
   }
 
