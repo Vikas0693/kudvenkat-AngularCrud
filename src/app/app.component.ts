@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, NavigationStart, NavigationEnd, Event, NavigationCancel, NavigationError } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularCrud';
+  showLoadingIndicator = true;
+  constructor(private _router: Router){
+    this._router.events.subscribe((eventThatOccurs: Event)=>{
+      if(eventThatOccurs instanceof NavigationStart)
+        this.showLoadingIndicator = true;
+      if(eventThatOccurs instanceof NavigationEnd)
+        this.showLoadingIndicator = false;
+      if(eventThatOccurs instanceof NavigationCancel || eventThatOccurs instanceof NavigationError)
+        this.showLoadingIndicator = false;
+    });
+  }
 }
+

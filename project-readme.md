@@ -146,3 +146,8 @@ Video 53: Create observable from an array and using rxjs/delay to imitate n/w la
 Video 54: Anuglar resolve guard
     a)because of delay added while fetching employees in employeesservice, the list employee component takes 2 sec to publish data. so what if we click create and then click list again we will go to list page and wait to see data.
     b)Resolver will wait for link to get activated untill it has data to show in list component
+Video 55: Enable router navigation events to monitor and debug router issues
+    a)see console for navigation events that occur because of enableTracing property
+Video 56: Letting user know that some process is going on by showing loader
+    a)From video 55)a) we have 3 events navigationStart and navigationEnd and navigationCancel
+    b)we subscribe to these events and make reaction like loading spinner
