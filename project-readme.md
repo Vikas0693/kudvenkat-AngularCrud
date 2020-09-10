@@ -151,5 +151,6 @@ Video 55: Enable router navigation events to monitor and debug router issues
 Video 56: Letting user know that some process is going on by showing loader
     a)From video 55)a) we have 3 events navigationStart and navigationEnd and navigationCancel
     b)we subscribe to these events and make reaction like loading spinner
-Video 56: Angular canActivate guard to make user go to pagenotfound when he edits id in url on employee-details html
+Video 57: Angular canActivate guard to make user go to pagenotfound when he edits id in url on employee-details html
     a)*to convert an object to boolean use '!!'. when object is not null it returns true
+Video 58: Adding button view, edit and delete in display employee component

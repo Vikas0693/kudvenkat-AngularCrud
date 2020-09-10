@@ -37,29 +37,6 @@ export class ListEmployeesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      
-
   }
-
-  onClick(employeeId: number){
-    this._router.navigate(['/employees',employeeId],{
-      queryParams: { 'searchTerm': this.searchTerm, 'testParam': 'testValue'}
-    });
-  }
-
-  changeName(){
-    this.employees[0].name="jordan";
-    this.filteredEmployees = this.filterEmployees(this.searchTerm);
-  }
-
-  changeEmployeesObjectReference(){
-    const newEmployee : Employee[] = Object.assign([], this.employees);
-    newEmployee[0].name = 'jordan';
-    //this.employees gets new object reference
-    this.employees = newEmployee;
-    this.filteredEmployees = this.filterEmployees(this.searchTerm);
-  }
-
-  onMouseMove(){}
 
 }
