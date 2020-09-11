@@ -7,7 +7,7 @@ import { Department } from '../models/department.model';
 import { Employee } from '../models/employee.model';
 
 import { EmployeeService } from './employee.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-employee',
@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-employee.component.css']
 })
 export class CreateEmployeeComponent implements OnInit {
+  panelTitle:string;
   @ViewChild('employeeForm') public createEmployeeForm: NgForm;
   previewPhoto : boolean = false;
   datePickerConfig: Partial<BsDatepickerConfig>;
@@ -40,7 +41,7 @@ export class CreateEmployeeComponent implements OnInit {
     { id: 3, name: 'IT' },
     { id: 4, name: 'Payroll' }
   ];
-  constructor(private _employeeService: EmployeeService, private _router: Router) { 
+  constructor(private _employeeService: EmployeeService, private _router: Router, private _route: ActivatedRoute) { 
     this.datePickerConfig = { 
       containerClass: 'theme-dark-blue', 
       dateInputFormat: 'DD/MM/YYYY'
@@ -48,6 +49,34 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._route.paramMap.subscribe((parameterMap)=>{
+      const id = +parameterMap.get('id');
+      this.getEmployee(id);
+    })
+  }
+
+  private getEmployee(id: number){
+    if(id===0){
+      this.panelTitle = 'Create Employee';
+      this.employee = {
+        id: null,
+        name: null,
+        gender: null,
+        contactPreference: null,
+        phoneNumber: null,
+        email: null,
+        dateOfBirth: null,
+        department: '-101',
+        isActive: null,
+        photoPath: null
+      };
+      this.createEmployeeForm.reset();
+    }
+    else {
+      this.panelTitle = 'Edit Employee';
+      //filling existing data to new object and asigning it to this.employee
+      Object.assign(this.employee,this._employeeService.getEmployee(id));
+    }
   }
 
   saveEmployee(): void {

@@ -154,3 +154,7 @@ Video 56: Letting user know that some process is going on by showing loader
 Video 57: Angular canActivate guard to make user go to pagenotfound when he edits id in url on employee-details html
     a)*to convert an object to boolean use '!!'. when object is not null it returns true
 Video 58: Adding button view, edit and delete in display employee component
+Video 59: Editing Existing Employee
+    a)*edit router for creating employee so that it can also support editing by sending id with url
+    b)*getting id from url and identifying whether id is existing in list or not
+    c)modifying code adding and editing employee in employee-service

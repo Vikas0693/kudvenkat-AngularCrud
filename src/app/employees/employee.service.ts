@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { Observable, of } from 'rxjs';
-import { } from 'rxjs/observable/of';
 import { delay, concatMap} from 'rxjs/operators';
 
 //providedIn can be added here or we can inject this service at module/component level using providers which we did at root level
@@ -49,7 +48,20 @@ export class EmployeeService {
     }
 
     saveEmployee(employee: Employee){
-        this.listEmployees.push(employee);
+        if(employee.id === null)//this shows it is a new employee
+        {
+            //use array.reduce method to find largest id in list
+            const maxId = this.listEmployees.reduce((e1 ,e2) =>{
+                return e1.id > e2.id ? e1 : e2;
+            }).id;
+            employee.id = maxId + 1;
+            //before pushing we have to set its id
+            this.listEmployees.push(employee);
+        }
+        else{
+            const index = this.listEmployees.findIndex(emp => emp.id === employee.id);
+            this.listEmployees[index] = employee;
+        }
     }
 
     getEmployee(id: number): Employee{
