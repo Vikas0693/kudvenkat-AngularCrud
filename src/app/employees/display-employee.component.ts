@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EmployeeService } from './employee.service';
 
 @Component({
   selector: 'app-display-employee',
@@ -10,10 +11,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DisplayEmployeeComponent implements OnInit {
   @Input() employee: Employee;
   @Input() searchTermInDisplayComponent: string;
+  //since we want to send id to list component we typecast eventemitter to number
+  @Output() notifyDeleteToListComponent: EventEmitter<number> = new EventEmitter();
   selectedEmployeeId: number;
+  confirmDelete: false;
 
 
-  constructor(private _route: ActivatedRoute, private _router: Router) { }
+  constructor(private _route: ActivatedRoute, private _router: Router, private _employeeService: EmployeeService) { }
   ngOnInit(): void {
     this.selectedEmployeeId = +this._route.snapshot.paramMap.get('id');
   }
@@ -28,5 +32,12 @@ export class DisplayEmployeeComponent implements OnInit {
   }
   editEmployee(){
     this._router.navigate(['/edit',this.employee.id]);
+  }
+  deleteEmployee(){
+    //here we are deleting employee from employees array of employee service but in listcomponent we use filteredEmployees to dispaly
+    //fileredEmployees gets new reference of array when user search name and then delete hence just deleting from employees array in employeeservice is not enough
+    //so we are deleting from filteredEmployees array using emiiter
+    this._employeeService.deleteEmployee(this.employee.id);
+    this.notifyDeleteToListComponent.emit(this.employee.id);
   }
 }

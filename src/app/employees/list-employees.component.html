@@ -3,5 +3,6 @@
                 [(ngModel)]="searchTerm" />
 </div>
 <div *ngFor="let employee of filteredEmployees">
-        <app-display-employee [employee]="employee" [searchTermInDisplayComponent]="searchTerm"></app-display-employee>
+        <app-display-employee [employee]="employee" [searchTermInDisplayComponent]="searchTerm" 
+        (notifyDeleteToListComponent)="onDeleteInDisplayComponent($event)"></app-display-employee>
 </div>

@@ -158,3 +158,8 @@ Video 59: Editing Existing Employee
     a)*edit router for creating employee so that it can also support editing by sending id with url
     b)*getting id from url and identifying whether id is existing in list or not
     c)modifying code adding and editing employee in employee-service
+Video 60: Delete works as normal but it does not when we search and delete
+    a)*in contructor of listcomponent we creating filteredEmployees
+    b)In normal delete we are deleting from listEmployees array in employee service and we assign same listEmployees object to filteredEmployees so list in html updated at runtime
+    c)but when there is something in search box 'set searchTerm' method gets called which sets filteredEmployees to new employees array object hence deleting from this array will not change listEmployees array in employeeservice so html will not update a runtime
+    d)so we need id of employee in listComponent which we will get using @Output decorator

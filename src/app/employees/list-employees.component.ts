@@ -14,11 +14,12 @@ export class ListEmployeesComponent implements OnInit {
   public get searchTerm(): string {
     return this._searchTerm;
   }
+
   public set searchTerm(value: string) {
     this._searchTerm = value;
     this.filteredEmployees = this.filterEmployees(value);
   }
-
+  //returns new filtered array
   filterEmployees(searchParam: string): Employee[]{
       return this.employees.filter(employee => employee.name.toLowerCase().indexOf(searchParam)!=-1);
   }
@@ -39,4 +40,11 @@ export class ListEmployeesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDeleteInDisplayComponent(event: number){
+    console.log(`emit event called to delete employee ${event}`);
+    const i = this.filteredEmployees.findIndex(e => e.id === event);
+    if( i!==-1){
+      this.filteredEmployees.splice(i,1);
+    }
+  }
 }
