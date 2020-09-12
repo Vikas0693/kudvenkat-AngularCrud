@@ -2,7 +2,7 @@
   "employees": [
     {
       "id": 1,
-      "name": "Mark1",
+      "name": "Mark1udated to Mark",
       "gender": "Male",
       "contactPreference": "Email",
       "email": "mark@pragimtech.com",
@@ -32,6 +32,18 @@
       "department": "3",
       "isActive": false,
       "photoPath": "assets/images/john.png"
+    },
+    {
+      "id": 4,
+      "name": "vikas",
+      "gender": "Male",
+      "contactPreference": "Email",
+      "phoneNumber": null,
+      "email": "asd@gmail.com",
+      "dateOfBirth": "2020-08-31T19:34:35.000Z",
+      "department": "1",
+      "isActive": true,
+      "photoPath": "/assets/images/mark.png"
     }
   ]
 }

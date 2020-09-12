@@ -184,3 +184,7 @@ Video 67: Error Handling for resolver if rest request fails
     a)our listEmployees gets data from resolver as given in appmodule so if resolver gets error on that data while fetching it from server then we can handle it in this way
     b)*one way to get employees array and error from resolver is by making it returning observable of an Object which we named 'resolved-employee-list.model.ts' and get object of that in listcomponent
     c)*Another way of doing this is by using union(|) operator to return observable 
+Video 68: Post http call to save employee and logging error if occurrs
+Video 69: Put http call to update existing employee
+    a)Since rest api calls returns obervable of data, it takes some time , during that time our page is redered which depends on that data hence errors arise in console as 'cannot access name of undefined'
+    To solve this we used ngif to show form only when data is availabe in employee-details and create-component.html

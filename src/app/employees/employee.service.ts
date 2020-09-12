@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { catchError, delay } from 'rxjs/operators';
 import { error } from '@angular/compiler/src/util';
 
 //providedIn can be added here or we can inject this service at module/component level using providers which we did at root level
@@ -45,49 +45,52 @@ export class EmployeeService {
             photoPath: 'assets/images/john.png'
         },
     ];
-    constructor(private httpClient:HttpClient){
+    baseUrl: string = "http://localhost:3000/employees";
+    constructor(private httpClient: HttpClient) {
     }
     getEmployees(): Observable<Employee[]> {
-        return this.httpClient.get<Employee[]>('http://localhost:3000/employees1')
-        .pipe(catchError(this.handleError));
+        return this.httpClient.get<Employee[]>(this.baseUrl)
+            .pipe(catchError(this.handleError));
     }
 
-    saveEmployee(employee: Employee){
-        if(employee.id === null)//this shows it is a new employee
-        {
-            //use array.reduce method to find largest id in list
-            const maxId = this.listEmployees.reduce((e1 ,e2) =>{
-                return e1.id > e2.id ? e1 : e2;
-            }).id;
-            employee.id = maxId + 1;
-            //before pushing we have to set its id
-            this.listEmployees.push(employee);
-        }
-        else{
-            const index = this.listEmployees.findIndex(emp => emp.id === employee.id);
-            this.listEmployees[index] = employee;
-        }
+    addEmployee(employee: Employee): Observable<Employee> {
+        return this.httpClient.post<Employee>(this.baseUrl, employee, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        })
+            .pipe(catchError(this.handleError));
     }
 
-    getEmployee(id: number): Employee{
-        return this.listEmployees.find(e => e.id==id);
+    updateEmployee(employee: Employee): Observable<void> {
+        return this.httpClient.put<void>(`${this.baseUrl}/${employee.id}`, employee, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        })
+            .pipe(catchError(this.handleError));
     }
 
-    deleteEmployee(id: number){
+    getEmployee(id: number): Observable<Employee> {
+        return this.httpClient.get<Employee>(`${this.baseUrl}/${id}`)
+            .pipe(catchError(this.handleError));
+    }
+
+    deleteEmployee(id: number) {
         const index = this.listEmployees.findIndex(emp => emp.id === id);
-        if(index != -1){
+        if (index != -1) {
             this.listEmployees.splice(index, 1);
         }
     }
 
-    private handleError(errorResponse: HttpErrorResponse){
+    private handleError(errorResponse: HttpErrorResponse) {
         //Error event occurrs bcoz of client side or n/w error
-        if(errorResponse.error instanceof ErrorEvent){
-            console.error('Client side error : '+errorResponse.error.message);
+        if (errorResponse.error instanceof ErrorEvent) {
+            console.error('Client side error : ' + errorResponse.error.message);
         }
-        else{
+        else {
             //server side error
-            console.error('Server sidde error : ',errorResponse);
+            console.error('Server sidde error : ', errorResponse);
         }
         return throwError('There is a problem with service. Please try again later.');
     }

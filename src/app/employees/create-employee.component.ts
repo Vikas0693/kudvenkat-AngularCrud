@@ -22,19 +22,7 @@ export class CreateEmployeeComponent implements OnInit {
   gender: string = 'male';
   department: string = '3';
   isActive: boolean = true;
-  employee: Employee = {
-    id: null,
-    name: null,
-    gender: null,
-    contactPreference: null,
-    phoneNumber: null,
-    email: null,
-    dateOfBirth: null,
-    department: '-101',
-    isActive: null,
-    photoPath: null
-  };
-
+  employee: Employee;
   departments: Department[] = [
     { id: 1, name: 'Help Desk' },
     { id: 2, name: 'HR' },
@@ -75,15 +63,38 @@ export class CreateEmployeeComponent implements OnInit {
     else {
       this.panelTitle = 'Edit Employee';
       //filling existing data to new object and asigning it to this.employee
-      Object.assign(this.employee,this._employeeService.getEmployee(id));
+      this._employeeService.getEmployee(id).subscribe(
+        (employee) =>{
+          this.employee = employee;
+        },
+        (error: any) => console.log('Error Occurred while fething employee! Error :',error)
+      );
     }
   }
 
   saveEmployee(): void {
-    const newEmployee:Employee = Object.assign({}, this.employee);
-    this._employeeService.saveEmployee(newEmployee);
-    this.createEmployeeForm.reset();
-    this._router.navigate(['list']);
+    if(this.employee.id == null){
+      this._employeeService.addEmployee(this.employee).subscribe(
+        (data: Employee) =>{
+          console.log(data);
+          this.createEmployeeForm.reset();
+          this._router.navigate(['list']);
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      )
+    } else {
+      this._employeeService.updateEmployee(this.employee).subscribe(
+        () =>{
+          this.createEmployeeForm.reset();
+          this._router.navigate(['list']);
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      )
+    }
   }
 
   togglePhotoPreview() {
