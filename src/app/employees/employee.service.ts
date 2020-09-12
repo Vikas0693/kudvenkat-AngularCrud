@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../models/employee.model';
-import { Observable, of } from 'rxjs';
-import { delay, concatMap} from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { error } from '@angular/compiler/src/util';
 
 //providedIn can be added here or we can inject this service at module/component level using providers which we did at root level
 @Injectable(/* {
@@ -47,7 +48,8 @@ export class EmployeeService {
     constructor(private httpClient:HttpClient){
     }
     getEmployees(): Observable<Employee[]> {
-        return this.httpClient.get<Employee[]>('http://localhost:3000/employees')
+        return this.httpClient.get<Employee[]>('http://localhost:3000/employees1')
+        .pipe(catchError(this.handleError));
     }
 
     saveEmployee(employee: Employee){
@@ -76,5 +78,17 @@ export class EmployeeService {
         if(index != -1){
             this.listEmployees.splice(index, 1);
         }
+    }
+
+    private handleError(errorResponse: HttpErrorResponse){
+        //Error event occurrs bcoz of client side or n/w error
+        if(errorResponse.error instanceof ErrorEvent){
+            console.error('Client side error : '+errorResponse.error.message);
+        }
+        else{
+            //server side error
+            console.error('Server sidde error : ',errorResponse);
+        }
+        return throwError('There is a problem with service. Please try again later.');
     }
 }

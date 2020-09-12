@@ -176,4 +176,7 @@ Video 64: Basic client server architecture
 Video 65: HttpClient tutorial
     a)*by default httpclient returns json object so we don't have to manually convert response to json
 Video 66: HttpClient ErrorHandling
-    a)
+    a)its good to handle error where its generated in our case its employeeService
+    b)*new ErrorObservable('error string') was removed in rxjs 6 so we used throwError;
+    c)to handle errors we use pipeable operator or lettable operators
+    d)here we are using catchError operator and passing function that throws 'throwError'
