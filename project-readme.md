@@ -4,6 +4,7 @@ Commands :
     './node_modules/bootstrap/dist/css/bootstrap.min.css' to angular.json style property
     3)Skip test file for one component: 'ng generate component --skipTests=true component-name'
     4)install ngx-bootstrap(prerequisite bootstrap 3/4) : npm install ngx-bootstrap --save
+    5)Install json-server : npm -g install json-server
 
 Links:  
     1)ngx-bootstrap -https://angular.io/resources?category=development or https://valor-software.com/ngx-bootstrap/#/documentation#getting-started
@@ -170,3 +171,4 @@ Video 61: Angular accordion
 Viddeo 62: Making reusable accordion using technique like content projection also called transclusion
     a)*using ng-content(in accordion.html) tag as placeholder for variable html code and since we use two tags of it , it is called multi slot content projection
     b)by using css selector(such as class selector,element selector,attribute selector) we can tell accordion in which ng-content we want to place our content, we use class selector using same class selector name in parent component to place div's, see displayComponent.html
+Video 63: Fake rest api using json-server
