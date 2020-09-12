@@ -29,13 +29,14 @@ export class ListEmployeesComponent implements OnInit {
   constructor(private _router: Router, private _activatedRoute: ActivatedRoute) {
     //reading pre-fetched data sent by resolver which is added in routes
     //so now we no longer need observable in ngOnInit lets remove that
-    const resolvedEmployeeList: ResolvedEmployeeList = _activatedRoute.snapshot.data['employeesList'];
-    //resolver successfully fetches employees data
-    if(resolvedEmployeeList.error === null){
-      this.employees = resolvedEmployeeList.employeeList;
+    const resolvedData: Employee[] | string = _activatedRoute.snapshot.data['employeesList'];
+    //resolver successfully fetches employees data then it returns array else error
+    if(Array.isArray(resolvedData)){
+      this.employees = resolvedData;
     }else{
-      this.error = resolvedEmployeeList.error;
+      this.error = resolvedData;
     }
+
     if(this._activatedRoute.snapshot.queryParamMap.has('searchTerm')){
       this.searchTerm = this._activatedRoute.snapshot.queryParamMap.get('searchTerm')
     }

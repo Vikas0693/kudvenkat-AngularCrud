@@ -7,15 +7,14 @@ import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Injectable()
-export class EmployeeListResolverService implements Resolve<ResolvedEmployeeList>{
+export class EmployeeListResolverService implements Resolve<Employee[] | string>{
 
     constructor(private _employeeService: EmployeeService){}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): import("rxjs").Observable<ResolvedEmployeeList> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): import("rxjs").Observable<Employee[] | string> {
         return this._employeeService.getEmployees()
         .pipe(
-            map((employeeList) => new ResolvedEmployeeList(employeeList)),
-            catchError((error: any) => of(new ResolvedEmployeeList(null, error)))
+            catchError((error: any) => of(error))
         );
     }
 }

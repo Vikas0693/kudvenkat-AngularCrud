@@ -183,4 +183,4 @@ Video 66: HttpClient ErrorHandling
 Video 67: Error Handling for resolver if rest request fails
     a)our listEmployees gets data from resolver as given in appmodule so if resolver gets error on that data while fetching it from server then we can handle it in this way
     b)*one way to get employees array and error from resolver is by making it returning observable of an Object which we named 'resolved-employee-list.model.ts' and get object of that in listcomponent
-    c)*
+    c)*Another way of doing this is by using union(|) operator to return observable 
