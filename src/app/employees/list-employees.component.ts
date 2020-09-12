@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee }  from '../models/employee.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ResolvedEmployeeList } from './resolved-employee-list.model';
 
 @Component({
   templateUrl: './list-employees.component.html',
@@ -10,6 +11,7 @@ export class ListEmployeesComponent implements OnInit {
   
   employees: Employee[];
   filteredEmployees: Employee[];
+  error: string;
   private _searchTerm: string;
   public get searchTerm(): string {
     return this._searchTerm;
@@ -27,7 +29,13 @@ export class ListEmployeesComponent implements OnInit {
   constructor(private _router: Router, private _activatedRoute: ActivatedRoute) {
     //reading pre-fetched data sent by resolver which is added in routes
     //so now we no longer need observable in ngOnInit lets remove that
-    this.employees = _activatedRoute.snapshot.data['employeesList'];
+    const resolvedEmployeeList: ResolvedEmployeeList = _activatedRoute.snapshot.data['employeesList'];
+    //resolver successfully fetches employees data
+    if(resolvedEmployeeList.error === null){
+      this.employees = resolvedEmployeeList.employeeList;
+    }else{
+      this.error = resolvedEmployeeList.error;
+    }
     if(this._activatedRoute.snapshot.queryParamMap.has('searchTerm')){
       this.searchTerm = this._activatedRoute.snapshot.queryParamMap.get('searchTerm')
     }

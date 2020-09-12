@@ -48,7 +48,7 @@ export class EmployeeService {
     constructor(private httpClient:HttpClient){
     }
     getEmployees(): Observable<Employee[]> {
-        return this.httpClient.get<Employee[]>('http://localhost:3000/employees1')
+        return this.httpClient.get<Employee[]>('http://localhost:3000/employees')
         .pipe(catchError(this.handleError));
     }
 

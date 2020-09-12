@@ -180,3 +180,7 @@ Video 66: HttpClient ErrorHandling
     b)*new ErrorObservable('error string') was removed in rxjs 6 so we used throwError;
     c)to handle errors we use pipeable operator or lettable operators
     d)here we are using catchError operator and passing function that throws 'throwError'
+Video 67: Error Handling for resolver if rest request fails
+    a)our listEmployees gets data from resolver as given in appmodule so if resolver gets error on that data while fetching it from server then we can handle it in this way
+    b)*one way to get employees array and error from resolver is by making it returning observable of an Object which we named 'resolved-employee-list.model.ts' and get object of that in listcomponent
+    c)*
