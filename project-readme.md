@@ -172,3 +172,8 @@ Viddeo 62: Making reusable accordion using technique like content projection als
     a)*using ng-content(in accordion.html) tag as placeholder for variable html code and since we use two tags of it , it is called multi slot content projection
     b)by using css selector(such as class selector,element selector,attribute selector) we can tell accordion in which ng-content we want to place our content, we use class selector using same class selector name in parent component to place div's, see displayComponent.html
 Video 63: Fake rest api using json-server
+Video 64: Basic client server architecture
+Video 65: HttpClient tutorial
+    a)*by default httpclient returns json object so we don't have to manually convert response to json
+Video 66: HttpClient ErrorHandling
+    a)

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { Observable, of } from 'rxjs';
 import { delay, concatMap} from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 //providedIn can be added here or we can inject this service at module/component level using providers which we did at root level
 @Injectable(/* {
@@ -43,8 +44,10 @@ export class EmployeeService {
             photoPath: 'assets/images/john.png'
         },
     ];
+    constructor(private httpClient:HttpClient){
+    }
     getEmployees(): Observable<Employee[]> {
-        return of(this.listEmployees).pipe(delay(1000));  
+        return this.httpClient.get<Employee[]>('http://localhost:3000/employees')
     }
 
     saveEmployee(employee: Employee){
