@@ -15,6 +15,7 @@ export class DisplayEmployeeComponent implements OnInit {
   @Output() notifyDeleteToListComponent: EventEmitter<number> = new EventEmitter();
   selectedEmployeeId: number;
   confirmDelete: false;
+  panelExpanded = true;
 
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _employeeService: EmployeeService) { }

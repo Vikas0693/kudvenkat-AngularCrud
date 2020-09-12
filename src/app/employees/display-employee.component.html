@@ -1,8 +1,8 @@
 <div class="panel panel-primary" [class.panel-success]="employee.id === selectedEmployeeId">
-  <div class="panel-heading">
+  <div class="panel-heading pointerCursor" (click)="panelExpanded=!panelExpanded">
     <h3 class="panel-title">{{employee.name | uppercase}}</h3>
   </div>
-  <div class="panel-body">
+  <div class="panel-body" [hidden]="!panelExpanded">
     <div class="col-xs-10">
 
       <div class="row vertical-align">
@@ -78,7 +78,7 @@
       </div>
     </div>
   </div>
-  <div class="panel-footer">
+  <div class="panel-footer" [hidden]="!panelExpanded">
     <div class="btn-toolbar">
       <div class="btn-group">
         <button class="btn btn-primary" (click)="viewEmployee()">View</button>

@@ -163,3 +163,9 @@ Video 60: Delete works as normal but it does not when we search and delete
     b)In normal delete we are deleting from listEmployees array in employee service and we assign same listEmployees object to filteredEmployees so list in html updated at runtime
     c)but when there is something in search box 'set searchTerm' method gets called which sets filteredEmployees to new employees array object hence deleting from this array will not change listEmployees array in employeeservice so html will not update a runtime
     d)so we need id of employee in listComponent which we will get using @Output decorator
+Video 61: Angular accordion
+    a)removing body and footer div from dom(using *ngIf="panelExpanded") when panelExpanded gets false on panelHeading click
+    b)this removal from dom is bad from performance so we will use hidden property
+    c)In video 62 we will make this accordion general to be used by other components
+Viddeo 62: Making reusable accordion
+    a)
