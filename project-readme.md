@@ -167,5 +167,6 @@ Video 61: Angular accordion
     a)removing body and footer div from dom(using *ngIf="panelExpanded") when panelExpanded gets false on panelHeading click
     b)this removal from dom is bad from performance so we will use hidden property
     c)In video 62 we will make this accordion general to be used by other components
-Viddeo 62: Making reusable accordion
-    a)
+Viddeo 62: Making reusable accordion using technique like content projection also called transclusion
+    a)*using ng-content(in accordion.html) tag as placeholder for variable html code and since we use two tags of it , it is called multi slot content projection
+    b)by using css selector(such as class selector,element selector,attribute selector) we can tell accordion in which ng-content we want to place our content, we use class selector using same class selector name in parent component to place div's, see displayComponent.html
