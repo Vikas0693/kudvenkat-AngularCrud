@@ -8,6 +8,9 @@ Commands :
 
 Links:  
     1)ngx-bootstrap -https://angular.io/resources?category=development or https://valor-software.com/ngx-bootstrap/#/documentation#getting-started
+
+Miscellaneous:
+    a)to delay the rest(http) api calls use delay(1000) operator inside pipe();
     
 Video 2:
     a)Skip spec files by setting skipTests:true in angular.json. Done in command 1)
@@ -188,3 +191,4 @@ Video 68: Post http call to save employee and logging error if occurrs
 Video 69: Put http call to update existing employee
     a)Since rest api calls returns obervable of data, it takes some time , during that time our page is redered which depends on that data hence errors arise in console as 'cannot access name of undefined'
     To solve this we used ngif to show form only when data is availabe in employee-details and create-component.html
+Video 70: Delete rest api

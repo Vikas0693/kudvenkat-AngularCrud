@@ -38,7 +38,12 @@ export class DisplayEmployeeComponent implements OnInit {
     //here we are deleting employee from employees array of employee service but in listcomponent we use filteredEmployees to dispaly
     //fileredEmployees gets new reference of array when user search name and then delete hence just deleting from employees array in employeeservice is not enough
     //so we are deleting from filteredEmployees array using emiiter
-    this._employeeService.deleteEmployee(this.employee.id);
-    this.notifyDeleteToListComponent.emit(this.employee.id);
+    this._employeeService.deleteEmployee(this.employee.id).subscribe(
+      ()=>{
+        console.log(`Employee deleted with id ${this.employee.id}`);this.notifyDeleteToListComponent.emit(this.employee.id); 
+      },
+      (error: any)=>console.log('DisplayComponent.deleteEmployee :Error when deleting employee',error)
+    );
+    
   }
 }
