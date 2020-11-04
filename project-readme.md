@@ -5,6 +5,7 @@ Commands :
     3)Skip test file for one component: 'ng generate component --skipTests=true component-name'
     4)install ngx-bootstrap(prerequisite bootstrap 3/4) : npm install ngx-bootstrap --save
     5)Install json-server : npm -g install json-server
+    6)Run fake JSON server - json-server --watch db.json
 
 Links:  
     1)ngx-bootstrap -https://angular.io/resources?category=development or https://valor-software.com/ngx-bootstrap/#/documentation#getting-started
